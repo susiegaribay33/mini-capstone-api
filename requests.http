@@ -14,9 +14,9 @@ content-type: application/json
   "description": "just coffee"
 }
 ###
-PATCH http://localhost:3000/products/12
+PATCH http://localhost:3000/products/13
 content-type: application/json
 
 {
-  "name": "Really Normal Coffee"
+  "name": "Bland Coffee"
 }
