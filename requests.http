@@ -18,5 +18,7 @@ PATCH http://localhost:3000/products/13
 content-type: application/json
 
 {
-  "name": "Bland Coffee"
+  "price": 27
 }
+###
+DELETE http://localhost:3000/products/12

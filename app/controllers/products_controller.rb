@@ -43,4 +43,12 @@ class ProductsController < ApplicationController
     render json: product.as_json
   end
 
+  def destroy
+    requested_id = params[:id]
+    product = Product.find_by(id: requested_id)
+    product.destroy
+    render json: {message: "Your requested product has been destroyed"}
+
+  end
+
 end
