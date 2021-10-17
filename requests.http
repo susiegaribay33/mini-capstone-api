@@ -4,7 +4,7 @@ GET http://localhost:3000/products
 ###
 GET http://localhost:3000/2
 ###
-POST http://localhost:3000/products
+PATCH http://localhost:3000/products
 content-type: application/json
 
 {
@@ -18,7 +18,7 @@ PATCH http://localhost:3000/products/13
 content-type: application/json
 
 {
-  "price": 27
+  "price": 21
 }
 ###
 DELETE http://localhost:3000/products/12
