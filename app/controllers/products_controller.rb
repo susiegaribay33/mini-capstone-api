@@ -6,13 +6,13 @@ class ProductsController < ApplicationController
 
   def index
     products = Product.all
-    render json: products.as_json
+    render json: products
   end
 
   def show
     requested_id = params[:id]
     product = Product.find_by(id: requested_id)
-    render json: product.as_json
+    render json: product
   end
 
   def create
@@ -29,7 +29,7 @@ class ProductsController < ApplicationController
     )
 
     new_product.save
-    render json: new_product.as_json
+    render json: new_product
   end
 
   def update
@@ -40,7 +40,7 @@ class ProductsController < ApplicationController
     product.image_url = params[:image_url] || product.image_url
     product.description = params[:description] || product.description
     product.save
-    render json: product.as_json
+    render json: product
   end
 
   def destroy
@@ -48,7 +48,6 @@ class ProductsController < ApplicationController
     product = Product.find_by(id: requested_id)
     product.destroy
     render json: {message: "Your requested product has been destroyed"}
-
   end
 
 end
