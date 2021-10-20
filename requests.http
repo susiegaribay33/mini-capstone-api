@@ -14,7 +14,7 @@ content-type: application/json
   "description": "vegan coffee"
 }
 ###
-PATCH http://localhost:3000/products/14
+PATCH http://localhost:3000/products/13
 content-type: application/json
 
 {
