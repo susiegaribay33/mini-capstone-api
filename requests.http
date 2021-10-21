@@ -8,17 +8,17 @@ PATCH http://localhost:3000/products
 content-type: application/json
 
 {
-  "name": "Vegan Coffee",
-  "price": 100,
+  "name": "The Coffee",
+  "price": -90,
   "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/A_small_cup_of_coffee.JPG/1200px-A_small_cup_of_coffee.JPG", 
-  "description": "vegan coffee"
+  "description": "supreme coffee"
 }
 ###
 PATCH http://localhost:3000/products/13
 content-type: application/json
 
 {
-  "price": 99
+  "price": -99
 }
 ###
 DELETE http://localhost:3000/products/14
