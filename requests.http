@@ -8,10 +8,15 @@ PATCH http://localhost:3000/products
 content-type: application/json
 
 {
-  "name": "The Coffee",
-  "price": -90,
-  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/A_small_cup_of_coffee.JPG/1200px-A_small_cup_of_coffee.JPG", 
-  "description": "supreme coffee"
+  "name": "Cafe de Olla",
+  "price": 20,
+  "description": "cinnamon, sugar, made in a clay pot",
+  "supplier_id": 2, 
+  "images": [
+    "link",
+    "link",
+    "link"
+  ]
 }
 ###
 PATCH http://localhost:3000/products/13

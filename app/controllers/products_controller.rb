@@ -18,14 +18,14 @@ class ProductsController < ApplicationController
   def create
     the_name = params[:name]
     the_price = params[:price]
-    the_imageurl = params[:image_url]
     the_desc = params[:description]
+    the_supp_id = params[:supplier_id]
 
     new_product = Product.new(
       name: the_name, 
-      price: the_price, 
-      image_url: the_imageurl, 
+      price: the_price,
       description: the_desc
+      supplier_id: the_supp_id
     )
     new_product.save
     if new_product.save
