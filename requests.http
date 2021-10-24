@@ -29,3 +29,14 @@ content-type: application/json
 DELETE http://localhost:3000/products/14
 ###
 GET http://localhost:3000/suppliers
+###
+#user create/sign-up
+POST http://localhost:3000/users
+content-type: application/json
+
+{
+  "name": "Test name",
+  "email": "test@test.com",
+  "password": "password",
+  "password_confirmation": "password"
+}
