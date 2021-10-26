@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
   # end
 
   def index
+    p current_user
     products = Product.all
     render json: products
   end
@@ -24,7 +25,7 @@ class ProductsController < ApplicationController
     new_product = Product.new(
       name: the_name, 
       price: the_price,
-      description: the_desc
+      description: the_desc,
       supplier_id: the_supp_id
     )
     new_product.save
