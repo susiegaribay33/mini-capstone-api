@@ -42,7 +42,7 @@ content-type: application/json
   "password": "password",
   "password_confirmation": "password"
 }
-###
+### 
 POST http://localhost:3000/sessions
 content-type: application/json
 
