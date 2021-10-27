@@ -1,12 +1,18 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user 
 
   def create
+    product = Product.find(params[:product_id])
+    calc_subtotal = params[:quantity].to_i * product.price
+    calc_tax = calc_subtotal * 0.07
+    calc_total = calc_tax + calc_subtotal
+
     order = Order.new(
       product_id: params[:product_id],
       quantity: params[:quantity],
-      subtotal: params[:subtotal],
-      tax: params[:tax],
-      total: params[:total],
+      subtotal: calc_subtotal,
+      tax: calc_tax,
+      total: calc_total,
       user_id: current_user.id
     )
 
@@ -30,6 +36,7 @@ class OrdersController < ApplicationController
 
   def show
     the_order = Order.find(params[:id])
+    # order = Order.find_by(id: params[:id], user_id: current_user.id)
 
     if current_user
       render json: the_order.as_json

@@ -1,11 +1,13 @@
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzUzODQ5NTR9.CWHOusrEVOyRhQNt9OwQLJUAXpx2CJat2xnjM8aTiUs
 
-###
+### PRODUCT - index all products
 GET http://localhost:3000/products
-# Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzUyOTE4MTB9.4sKbHsBL2zyyw4E3o4Cye06XKMvgBAeNM1RUro4fTNw
+# Authorization: Bearer {{jwt}}
 
-###
+### PRODUCT - show one product
 GET http://localhost:3000/products/2
-###
+
+### PRODUCT - create new product
 PATCH http://localhost:3000/products
 content-type: application/json
 
@@ -20,19 +22,23 @@ content-type: application/json
     "link"
   ]
 }
-###
+
+### PRODUCT - update one product
 PATCH http://localhost:3000/products/13
+Authorization: Bearer {{jwt}}
 content-type: application/json
 
 {
-  "price": -99
+  "price": 70
 }
-###
+
+### PRODUCT - delete one product
 DELETE http://localhost:3000/products/14
-###
+
+### SUPPLIER - index all suppliers
 GET http://localhost:3000/suppliers
-###
-#user create/sign-up
+
+### USER - create new user/sign-up
 POST http://localhost:3000/users
 content-type: application/json
 
@@ -42,7 +48,8 @@ content-type: application/json
   "password": "password",
   "password_confirmation": "password"
 }
-### 
+
+### SESSIONS - create new session/login
 POST http://localhost:3000/sessions
 content-type: application/json
 
@@ -51,26 +58,23 @@ content-type: application/json
   "password": "password"
 }
 
-### Create order (user must be logged in), assuming getting all params from user
+### ORDER - Create new order (user must be logged in), assuming getting all params from user
 POST http://localhost:3000/orders
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzUzNzc4ODB9.XAfCuKruS4vI6tPdTrr6GNqUiK-EGCynQ5-2qTkaluU
+Authorization: Bearer {{jwt}}
 Content-type: application/json
 
 {
-  "product_id": 2,
-  "quantity": 1,
-  "subtotal": 64,
-  "tax": 5.76,
-  "total": 69.76
+  "product_id": "1",
+  "quantity": "3"
 }
 
-### Index orders (user must be logged in)
+### ORDER - index all orders (user must be logged in)
 GET http://localhost:3000/orders
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzUzNzc4ODB9.XAfCuKruS4vI6tPdTrr6GNqUiK-EGCynQ5-2qTkaluU
+Authorization: Bearer {{jwt}}
 
-### Show specific order (user must be logged in)
+### ORDER - show specific order (user must be logged in)
 GET http://localhost:3000/orders/1
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzUzNzc4ODB9.XAfCuKruS4vI6tPdTrr6GNqUiK-EGCynQ5-2qTkaluU
+Authorization: Bearer {{jwt}}
 
 ###
 
