@@ -15,4 +15,8 @@ class Product < ApplicationRecord
     price * 0.09
   end
 
+  def total
+    
+  end
+
 end

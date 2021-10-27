@@ -50,6 +50,7 @@ content-type: application/json
   "email": "test@test.com",
   "password": "password"
 }
+
 ### Create order (user must be logged in), assuming getting all params from user
 POST http://localhost:3000/orders
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzUzNzc4ODB9.XAfCuKruS4vI6tPdTrr6GNqUiK-EGCynQ5-2qTkaluU
@@ -62,8 +63,15 @@ Content-type: application/json
   "tax": 5.76,
   "total": 69.76
 }
+
 ### Index orders (user must be logged in)
 GET http://localhost:3000/orders
-# Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzUzNzc4ODB9.XAfCuKruS4vI6tPdTrr6GNqUiK-EGCynQ5-2qTkaluU
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzUzNzc4ODB9.XAfCuKruS4vI6tPdTrr6GNqUiK-EGCynQ5-2qTkaluU
+
+### Show specific order (user must be logged in)
+GET http://localhost:3000/orders/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzUzNzc4ODB9.XAfCuKruS4vI6tPdTrr6GNqUiK-EGCynQ5-2qTkaluU
+
+###
 
 
