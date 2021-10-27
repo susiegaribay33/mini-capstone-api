@@ -11,4 +11,8 @@ class Product < ApplicationRecord
   #   Supplier.find_by(id: supplier_id)
   # end
 
+  def tax
+    price * 0.09
+  end
+
 end
