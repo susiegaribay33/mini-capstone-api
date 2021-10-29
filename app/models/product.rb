@@ -6,6 +6,8 @@ class Product < ApplicationRecord
   belongs_to :supplier
   has_many :images 
   has_many :orders
+  has_many :category_products
+  has_many :categories, through: :category_products #NEEDS TO HAVE LINE ABOVE, JOINT TABLE CALLED EXACTLY category_products, product_id, category_id, TABLES CALLED categories AND products
 
   # def supplier
   #   Supplier.find_by(id: supplier_id)
