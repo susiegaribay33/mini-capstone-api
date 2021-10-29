@@ -1,4 +1,4 @@
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzUzODQ5NTR9.CWHOusrEVOyRhQNt9OwQLJUAXpx2CJat2xnjM8aTiUs
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzU0NzQyOTN9.Q4RF0jPnwqNl3u8F0tn4eqPNbbFUG7gEWkVcVetC5wo
 
 ### PRODUCT - index all products
 GET http://localhost:3000/products
@@ -58,7 +58,7 @@ content-type: application/json
   "password": "password"
 }
 
-### ORDER - Create new order (user must be logged in), assuming getting all params from user
+### ORDER - Create new order (user must be logged in)
 POST http://localhost:3000/orders
 Authorization: Bearer {{jwt}}
 Content-type: application/json

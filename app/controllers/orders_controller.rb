@@ -27,7 +27,7 @@ class OrdersController < ApplicationController
     all_orders = Order.all
 
     if current_user
-      render json: all_orders.as_json
+      render json: all_orders
     else
       render json: {message: "You need to be logged in in order to see your orders."}
     end
@@ -39,7 +39,7 @@ class OrdersController < ApplicationController
     # order = Order.find_by(id: params[:id], user_id: current_user.id)
 
     if current_user
-      render json: the_order.as_json
+      render json: the_order
     else
       render json: {message: "You need to be logged in in order to see the selected order."}
     end
