@@ -8,6 +8,8 @@ class Product < ApplicationRecord
   has_many :orders
   has_many :category_products
   has_many :categories, through: :category_products #NEEDS TO HAVE LINE ABOVE, JOINT TABLE CALLED EXACTLY category_products, product_id, category_id, TABLES CALLED categories AND products
+  has_many :carted_products
+  has_many :users, through: :carted_products
 
   # def supplier
   #   Supplier.find_by(id: supplier_id)
