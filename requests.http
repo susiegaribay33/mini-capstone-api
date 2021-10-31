@@ -1,4 +1,4 @@
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzU0NzQyOTN9.Q4RF0jPnwqNl3u8F0tn4eqPNbbFUG7gEWkVcVetC5wo
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzU3ODQ3ODZ9.fPtZZ4-bA8C29PxIw0x6v8TvV4HHo3A9lQQoiAFO4HY
 
 ### PRODUCT - index all products
 GET http://localhost:3000/products?category=Latte
@@ -49,7 +49,7 @@ content-type: application/json
   "password_confirmation": "password"
 }
 
-### SESSIONS - create new session/login
+### SESSIONS - create new session/login for exisiting user
 POST http://localhost:3000/sessions
 content-type: application/json
 
@@ -76,6 +76,18 @@ Authorization: Bearer {{jwt}}
 GET http://localhost:3000/orders/1
 Authorization: Bearer {{jwt}}
 
+### CARTED_PRODUCT - add item(s) to cart
+POST http://localhost:3000/carted-products
+Authorization: Bearer {{jwt}}
+Content-Type: application/json
+
+{
+  "product_id": 13,
+  "quantity": 1
+}
+### CARTED_PRODUCT - index all carted products
+GET http://localhost:3000/carted-products
+Authorization: Bearer {{jwt}}
 ###
 
 
