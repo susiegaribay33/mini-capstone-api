@@ -2,14 +2,20 @@ class OrdersController < ApplicationController
   before_action :authenticate_user 
 
   def create
-    product = Product.find(params[:product_id])
-    calc_subtotal = params[:quantity].to_i * product.price
+    carted_products = CartedProduct.where(user_id: current_user.id, status: "Carted")
+    item_count = carted_products.count
+    i = item_count
+    while i < item_count
+      product_id = carted_products[i].product_id
+      product = Product.find(product_id)
+      calc_subtotal = carted_products[i].quantity * product.price.to_i
+      i += 1
+    end
+
     calc_tax = calc_subtotal * 0.07
     calc_total = calc_tax + calc_subtotal
 
     order = Order.new(
-      product_id: params[:product_id],
-      quantity: params[:quantity],
       subtotal: calc_subtotal,
       tax: calc_tax,
       total: calc_total,
