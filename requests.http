@@ -1,4 +1,8 @@
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzU3ODQ3ODZ9.fPtZZ4-bA8C29PxIw0x6v8TvV4HHo3A9lQQoiAFO4HY
+# Test name JWT
+@testjwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzU4OTY3Mzd9.kxnOLbkUQbEP2act7HNUeCk8XzmrGPHrq3CJNJoYAUY
+
+# Benny Smith JWT
+@bennyjwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2MzU4OTY2Nzh9.1qCO2DNPzEEwg8I5zcJz9H-iTBGldzqUmDWm-SApzG0
 
 ### PRODUCT - index all products
 GET http://localhost:3000/products?category=Latte
@@ -43,8 +47,8 @@ POST http://localhost:3000/users
 content-type: application/json
 
 {
-  "name": "Test name",
-  "email": "test@test.com",
+  "name": "Benny Smith",
+  "email": "benny@smith.com",
   "password": "password",
   "password_confirmation": "password"
 }
@@ -58,15 +62,9 @@ content-type: application/json
   "password": "password"
 }
 
-### ORDER - Create new order (user must be logged in)
+### ORDER - Create new order from carted products (user must be logged in & have carted products)
 POST http://localhost:3000/orders
-Authorization: Bearer {{jwt}}
-Content-type: application/json
-
-{
-  "product_id": "1",
-  "quantity": "3"
-}
+Authorization: Bearer {{testjwt}}
 
 ### ORDER - index all orders (user must be logged in)
 GET http://localhost:3000/orders
@@ -78,12 +76,12 @@ Authorization: Bearer {{jwt}}
 
 ### CARTED_PRODUCT - add item(s) to cart
 POST http://localhost:3000/carted-products
-Authorization: Bearer {{jwt}}
+Authorization: Bearer {{bennyjwt}}
 Content-Type: application/json
 
 {
-  "product_id": 13,
-  "quantity": 1
+  "product_id": 1,
+  "quantity": 25
 }
 ### CARTED_PRODUCT - index all carted products
 GET http://localhost:3000/carted-products

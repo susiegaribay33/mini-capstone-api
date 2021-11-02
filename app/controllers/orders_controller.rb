@@ -4,6 +4,7 @@ class OrdersController < ApplicationController
   def create
     carted_products = CartedProduct.where(user_id: current_user.id, status: "Carted")
     item_count = carted_products.count
+
     i = item_count
     while i < item_count
       product_id = carted_products[i].product_id
@@ -23,7 +24,7 @@ class OrdersController < ApplicationController
     )
 
     if order.save
-      render json: {message: "You've created an order!"}
+      render json: order.as_json
     else
       render json: {error: order.errors.full_messages}
     end
