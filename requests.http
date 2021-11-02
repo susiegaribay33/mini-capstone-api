@@ -64,7 +64,7 @@ content-type: application/json
 
 ### ORDER - Create new order from carted products (user must be logged in & have carted products)
 POST http://localhost:3000/orders
-Authorization: Bearer {{testjwt}}
+Authorization: Bearer {{bennyjwt}}
 
 ### ORDER - index all orders (user must be logged in)
 GET http://localhost:3000/orders
@@ -80,12 +80,12 @@ Authorization: Bearer {{bennyjwt}}
 Content-Type: application/json
 
 {
-  "product_id": 1,
-  "quantity": 25
+  "product_id": 7,
+  "quantity": 10
 }
 ### CARTED_PRODUCT - index all carted products
 GET http://localhost:3000/carted-products
-Authorization: Bearer {{jwt}}
+Authorization: Bearer {{testjwt}}
 ###
 
 

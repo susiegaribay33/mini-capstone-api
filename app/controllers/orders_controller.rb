@@ -2,19 +2,16 @@ class OrdersController < ApplicationController
   before_action :authenticate_user 
 
   def create
-    carted_products = CartedProduct.where(user_id: current_user.id, status: "Carted")
-    item_count = carted_products.count
-
-    i = item_count
-    while i < item_count
-      product_id = carted_products[i].product_id
-      product = Product.find(product_id)
-      calc_subtotal = carted_products[i].quantity * product.price.to_i
-      i += 1
+    carted_products = current_user.carted_products.where(status: "Carted")
+    
+    calc_subtotal = 0
+    carted_products.each do |carted_product|
+      calc_subtotal += carted_product.product.price * carted_product.quantity
     end
-
-    calc_tax = calc_subtotal * 0.07
-    calc_total = calc_tax + calc_subtotal
+     
+    tax_rate = 0.07
+    calc_tax = calc_subtotal * tax_rate
+    calc_total = calc_subtotal + calc_tax
 
     order = Order.new(
       subtotal: calc_subtotal,
@@ -23,11 +20,16 @@ class OrdersController < ApplicationController
       user_id: current_user.id
     )
 
-    if order.save
-      render json: order.as_json
-    else
-      render json: {error: order.errors.full_messages}
+    order.save
+
+    # change status to purchased and add order id
+    carted_products.each do |carted_product|
+      carted_product.status = "Purchased"
+      carted_product.order_id = order.id
+      carted_product.save
     end
+
+    render json: order.as_json
   end
 
   def index
