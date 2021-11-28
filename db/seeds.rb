@@ -13,4 +13,4 @@
 #   {name: "Bland Coffee", price: 21, image_url: "https://i.insider.com/60d223afdb3f80001848d4c4?width=700", description: "bland coffee"}
 # ])
 
-gem 'seed_dump'
+# gem 'seed_dump'
