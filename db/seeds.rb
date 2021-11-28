@@ -1,4 +1,4 @@
-Supplier.create!([{name: "Good Stuff". email: "goodstuff@email.com", phone_number: "345-432-6777"}, {name: "Cool Coffee". email: "coffee@cool.com", phone_number: "111-222-3333"}])
+Supplier.create!([{name: "Good Stuff", email: "goodstuff@email.com", phone_number: "345-432-6777"}, {name: "Cool Coffee", email: "coffee@cool.com", phone_number: "111-222-3333"}])
 
 Product.create!([
   {name: "Spilt Delight", price: 74, supplier_id: 1, description: "structured, big, mint, sundried tomato, clove"},
