@@ -2,42 +2,39 @@
 @testjwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzU4OTY3Mzd9.kxnOLbkUQbEP2act7HNUeCk8XzmrGPHrq3CJNJoYAUY
 
 # Benny Smith JWT
-@bennyjwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2MzU4OTY2Nzh9.1qCO2DNPzEEwg8I5zcJz9H-iTBGldzqUmDWm-SApzG0
+@bennyjwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzcyMDE5MDN9.DInzodSH1SlB_rvJ0kClilvHNdLKs6re0TZofOHjgR4
 
 ### PRODUCT - index all products
-GET http://localhost:3000/products?category=Latte
+GET http://localhost:3000/products
 # Authorization: Bearer {{jwt}}
 
 ### PRODUCT - show one product
 GET http://localhost:3000/products/2
 
 ### PRODUCT - create new product
-PATCH http://localhost:3000/products
+POST http://localhost:3000/products
+Authorization: Bearer {{bennyjwt}}
 content-type: application/json
 
 {
-  "name": "Cafe de Olla",
-  "price": 20,
-  "description": "cinnamon, sugar, made in a clay pot",
-  "supplier_id": 2, 
-  "images": [
-    "link",
-    "link",
-    "link"
-  ]
+  "name": "Decaf Coffee",
+  "price": 50,
+  "description": "doesn't contain caffeine",
+  "supplier_id": 1
 }
 
 ### PRODUCT - update one product
-PATCH http://localhost:3000/products/13
-Authorization: Bearer {{jwt}}
+PATCH http://localhost:3000/products/15
+Authorization: Bearer {{bennyjwt}}
 content-type: application/json
 
 {
-  "price": 70
+  "price": 51
 }
 
 ### PRODUCT - delete one product
-DELETE http://localhost:3000/products/14
+DELETE http://localhost:3000/products/15
+Authorization: Bearer {{bennyjwt}}
 
 ### SUPPLIER - index all suppliers
 GET http://localhost:3000/suppliers

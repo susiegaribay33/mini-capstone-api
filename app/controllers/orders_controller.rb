@@ -12,7 +12,8 @@ class OrdersController < ApplicationController
     tax_rate = 0.07
     calc_tax = calc_subtotal * tax_rate
     calc_total = calc_subtotal + calc_tax
-
+    
+    #create order in orders table
     order = Order.new(
       subtotal: calc_subtotal,
       tax: calc_tax,
